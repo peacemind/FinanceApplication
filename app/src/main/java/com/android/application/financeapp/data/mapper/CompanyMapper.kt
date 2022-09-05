@@ -1,6 +1,8 @@
 package com.android.application.financeapp.data.mapper
 
 import com.android.application.financeapp.data.local.CompanyListingEntity
+import com.android.application.financeapp.data.remote.dto.CompanyInfoDto
+import com.android.application.financeapp.domain.model.CompanyInfo
 import com.android.application.financeapp.domain.model.CompanyListing
 
 
@@ -17,5 +19,15 @@ fun CompanyListing.toCompanyListingEntity(): CompanyListingEntity {
         name = name,
         symbol = symbol,
         exchange = exchange
+    )
+}
+
+fun CompanyInfoDto.toCompanyInfo(): CompanyInfo {
+    return CompanyInfo(
+        symbol = symbol ?: "",
+        description = description ?: "",
+        name = name ?: "",
+        country = country ?: "",
+        industry = industry ?: ""
     )
 }
